@@ -1,0 +1,94 @@
+<%- include('../partials/header.ejs')%>
+
+    <main>
+        <div class="form-main-content">
+            <form action="/events/<%=event.id%>?_method=PUT" enctype="multipart/form-data" method="POST">
+                <div class="input-group new-event-row">
+                    <label class="font-30 secondary">Category</label>
+                    <select class="input-size category-choices" name="category" id="category">
+                        <% if(event.category === 'Projects') { %>
+                            <option selected="true" name="Projects" value="Projects">Projects</option>
+                            <option name="Study" value="Study">Study</option>
+                            <option name="Sports" value="Sports">Sports</option>
+                            <option name="Games" value="Games">Games</option>
+                            <option name="Movies" value="Movies">Movies</option>
+                            <option name="Other" value="Other">Other</option>
+                        <% } %>
+                        <% if(event.category === 'Study') { %>
+                            <option name="Projects" value="Projects">Projects</option>
+                            <option selected="true" name="Study" value="Study">Study</option>
+                            <option name="Sports" value="Sports">Sports</option>
+                            <option name="Games" value="Games">Games</option>
+                            <option name="Movies" value="Movies">Movies</option>
+                            <option name="Other" value="Other">Other</option>
+                        <% } %>
+                        <% if(event.category === 'Sports') { %>
+                            <option name="Projects" value="Projects">Projects</option>
+                            <option name="Study" value="Study">Study</option>
+                            <option selected="true" name="Sports" value="Sports">Sports</option>
+                            <option name="Games" value="Games">Games</option>
+                            <option name="Movies" value="Movies">Movies</option>
+                            <option name="Other" value="Other">Other</option>
+                        <% } %>
+                        <% if(event.category === 'Games') { %>
+                            <option name="Projects" value="Projects">Projects</option>
+                            <option name="Study" value="Study">Study</option>
+                            <option name="Sports" value="Sports">Sports</option>
+                            <option selected="true" name="Games" value="Games">Games</option>
+                            <option name="Movies" value="Movies">Movies</option>
+                            <option name="Other" value="Other">Other</option>
+                        <% } %>
+                        <% if(event.category === 'Movies') { %>
+                            <option name="Projects" value="Projects">Projects</option>
+                            <option name="Study" value="Study">Study</option>
+                            <option name="Sports" value="Sports">Sports</option>
+                            <option name="Games" value="Games">Games</option>
+                            <option selected="true" name="Movies" value="Movies">Movies</option>
+                            <option name="Other" value="Other">Other</option>
+                        <% } %>
+                        <% if(event.category === 'Other') { %>
+                            <option name="Projects" value="Projects">Projects</option>
+                            <option name="Study" value="Study">Study</option>
+                            <option name="Sports" value="Sports">Sports</option>
+                            <option name="Games" value="Games">Games</option>
+                            <option name="Movies" value="Movies">Movies</option>
+                            <option selected="true" name="Other" value="Other">Other</option>
+                        <% } %>
+                    </select>
+                </div>
+                <!-- <div class="input-group new-event-row">
+                    <label class="font-30 secondary">Name</label>
+                    <input class="input-size" type="text" name="hostname" id="hostname" placeholder="Host Name" value="<%= event.hostname %>" required>
+                </div> -->
+                <div class="input-group new-event-row">
+                    <label class="font-30 secondary">Title</label>
+                    <input class="input-size" type="text" name="title" id="title" placeholder="Title" value="<%= event.title %>" required>
+                </div>
+                <div class="input-group new-event-row">
+                    <label class="font-30 secondary">Details</label>
+                    <input class="input-size" name="details" id="details" placeholder="Details" value="<%= event.details %>" required>
+                </div>
+                <div class="input-group new-event-row">
+                    <label class="font-30 secondary">Where</label>
+                    <input class="input-size" name="location" id="location" placeholder="Location" value="<%= event.location %>" required>
+                </div>
+                <div class="input-group new-event-row">
+                    <label class="font-30 secondary">Start</label>
+                    <input class="input-size" type="datetime-local" name="startDateTime" id="start" value="<%= startDate %>" required>
+                </div>
+                <div class="input-group new-event-row">
+                    <label class="font-30 secondary">End</label>
+                    <input class="input-size" type="datetime-local" name="endDateTime" id="end" value="<%= endDate %>" required>
+                </div>
+                <div class="input-group new-event-file">
+                    <label class="font-30 secondary">Image</label>
+                    <input type="file" class="choose-file" id="image" name="image" required>
+                </div>
+                <div class="input-group new-event-submit">
+                    <input class="submit-size font-30" type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <%- include('../partials/footer.ejs')%>

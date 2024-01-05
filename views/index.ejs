@@ -1,0 +1,33 @@
+<%- include('./partials/header.ejs')%>
+
+    <main>
+        <div class="main-content">
+            <div>
+                <% if(errorMessages.length > 0) {%>
+                    <% errorMessages.forEach(message=>{%>
+                        <div class='error'>
+                            <%=message%>
+                        </div>
+                        <%});%>
+                            <%}%>
+                
+                                <% if(successMessages.length > 0) {%>
+                
+                                    <% successMessages.forEach(message=>{%>
+                                        <div class='success'>
+                                            <%=message%>
+                                        </div>
+                                        <%});%>
+                                            <%}%>
+            </div>
+            <h1 class="intro-header font-bold">Welcome to CS Study Buddy</h1>
+            <p class="white font-20">Attend and create CS events to connect with people. Whether you are looking for a
+                study
+                buddy, friends in
+                your classes or teammates for personal projects. You can find people who are interested in the same
+                thing and create new projects or learn new things together!</p>
+            <p class="white font-20">Check out the Events section to browse available events!</p>
+        </div>
+    </main>
+
+    <%- include('./partials/footer.ejs')%>

@@ -1,0 +1,82 @@
+<%- include('../partials/header.ejs')%>
+
+        <main>
+                <div class="main-content">
+                        <% if(events.length) { %>
+
+                                <% if(events.find(cat => cat.category === 'Projects')) { %>
+                                        <h2 class="events-header font-bold">Projects</h2>
+                                <% } %>
+                                
+                                <% events.forEach(project => {
+                                        if(project.category === 'Projects') { %>
+                                                <ul class="project-list">
+                                                        <li class="event-list"><a class="event-item font-20" href="/events/<%=project.id%>"><%= project.title %></a></li>
+                                                </ul>
+                                        <% }
+                                }); %>
+
+                                <% if(events.find(cat => cat.category === 'Study')) { %>
+                                        <h2 class="events-header font-bold">Study</h2>
+                                <% } %>
+                                <% events.forEach(study => {
+                                        if(study.category === 'Study') { %>
+                                                <ul class="project-list">
+                                                        <li class="event-list"><a class="event-item font-20" href="/events/<%=study.id%>"><%= study.title %></a></li>
+                                                </ul>
+                                        <% }
+                                }); %>
+
+                                <% if(events.find(cat => cat.category === 'Sports')) { %>
+                                        <h2 class="events-header font-bold">Sports</h2>
+                                <% } %>
+                                <% events.forEach(sports => {
+                                        if(sports.category === 'Sports') { %>
+                                                <ul class="project-list">
+                                                        <li class="event-list"><a class="event-item font-20" href="/events/<%=sports.id%>"><%= sports.title %></a></li>
+                                                </ul>
+                                        <% }
+                                }); %>
+
+                                <% if(events.find(cat => cat.category === 'Games')) { %>
+                                        <h2 class="events-header font-bold">Games</h2>
+                                <% } %>
+                                <% events.forEach(games => {
+                                        if(games.category === 'Games') { %>
+                                                <ul class="project-list">
+                                                        <li class="event-list"><a class="event-item font-20" href="/events/<%=games.id%>"><%= games.title %></a></li>
+                                                </ul>
+                                        <% }
+                                }); %>
+
+                                <% if(events.find(cat => cat.category === 'Movies')) { %>
+                                        <h2 class="events-header font-bold">Movies</h2>
+                                <% } %>
+                                <% events.forEach(movie => {
+                                        if(movie.category === 'Movies') { %>
+                                                <ul class="project-list">
+                                                        <li class="event-list"><a class="event-item font-20" href="/events/<%=movie.id%>"><%= movie.title %></a></li>
+                                                </ul>
+
+                                        <% }
+                                }); %>
+
+                                <% if(events.find(cat => cat.category === 'Other')) { %>
+                                        <h2 class="events-header font-bold">Other</h2>
+                                <% } %>
+                                <% events.forEach(other => {
+                                        if(other.category === 'Other') { %>
+                                                <ul class="project-list">
+                                                        <li class="event-list"><a class="event-item font-20" href="/events/<%=other.id%>"><%= other.title %></a></li>
+                                                </ul>
+
+                                        <% }
+                                });
+                                
+                                } else { %>
+                                        <p>No Current Events</p>
+                                <% } %>
+                </div>
+        </main>
+
+        <%- include('../partials/footer.ejs')%>

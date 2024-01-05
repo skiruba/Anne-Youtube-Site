@@ -1,0 +1,32 @@
+<%- include('../partials/header.ejs')%>
+
+    <main>
+        <div class="main-content">
+            <div class="event-header-row">
+                <h2 class="font-bold events-header"><%= event.title %></h2>
+                <!-- <% if(user == event.hostname._id) { %>
+                <form>
+                    <button class="editButton" type="submit" formmethod="GET" formaction="/events/<%=event.id%>/edit"><i class="fa-solid fa-pen-to-square"></i></button>
+                </form>
+                <form>
+                    <button class="editButton" type="submit" formmethod="POST" formaction="/events/<%=event.id%>?_method=DELETE"><i class="fa-solid fa-trash"></i></button>
+                </form>
+                <% } %> -->
+            </div>
+            <div class="event-content-row">
+                <div class="event-image">
+                    <img src="<%= event.image %>" name="image" id="image" alt="event-image" width="500">
+                </div>
+                <div class="event-content">
+                    <p class="font-20"><span class="font-bold">Host: </span><%= event.hostname.firstName + ' ' + event.hostname.lastName %></p>
+                    <p class="font-20"><span class="font-bold">Start Time: </span><%= startDate %></p>
+                    <p class="font-20"><span class="font-bold">End Time: </span><%= endDate %></p>
+                    <p class="font-20"><span class="font-bold">Location: </span><%= event.location %>
+                    </p>
+                    <p class="font-20"><span class="font-bold">Details: </span><%= event.details %></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <%- include('../partials/footer.ejs')%>

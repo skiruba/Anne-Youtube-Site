@@ -1,0 +1,41 @@
+<%- include('../partials/header.ejs')%>
+
+    <main>
+        <div class="form-main-content">
+            <div>
+                <% if(errorMessages.length > 0) {%>
+                    <% errorMessages.forEach(message=>{%>
+                        <div class='error'>
+                            <%=message%>
+                        </div>
+                        <%});%>
+                            <%}%>
+                
+                                <% if(successMessages.length > 0) {%>
+                
+                                    <% successMessages.forEach(message=>{%>
+                                        <div class='success'>
+                                            <%=message%>
+                                        </div>
+                                        <%});%>
+                                            <%}%>
+            </div>
+            <form action='/user/login' method='POST'>
+                <div class="input-group new-event-row">
+                    <label class="font-30 secondary" for="email">Email</label>
+                    <input class="input-size" type="text" id="email" name="email" placeholder="Email" required>
+                </div>
+
+                <div class="input-group new-event-row">
+                    <label class="font-30 secondary" for="password">Password</label>
+                    <input class="input-size" type="password" id="password" name="password" minlength="8" required>
+                </div>
+
+                <div class="input-group new-event-submit">
+                    <input class="submit-size font-30" type="submit" value="Login">
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <%- include('../partials/footer.ejs')%>

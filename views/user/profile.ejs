@@ -1,0 +1,56 @@
+<%- include('../partials/header.ejs')%>
+
+    <main>
+        <div class="main-content">
+            <div>
+                <% if(errorMessages.length> 0) {%>
+                    <% errorMessages.forEach(message=>{%>
+                        <div class='error'>
+                            <%=message%>
+                        </div>
+                        <%});%>
+                            <%}%>
+                                <% if(successMessages.length> 0) {%>
+                                    <% successMessages.forEach(message=>{%>
+                                        <div class='success'>
+                                            <%=message%>
+                                        </div>
+                                        <%});%>
+                                            <%}%>
+            </div>
+                <% if(events.length) { %>
+                    <h1 class="secondary font-40">Welcome <%=user.firstName%>, here are your events</h1>
+                    <table class="profile-table">
+                    <tr class="profile-border">
+                        <th class="profile-borders font-20 secondary font-30" colspan="2">Title</th>
+                        <th class="profile-borders font-20 secondary font-30">Actions</th>
+                    </tr>
+                    <% events.forEach(event=> { %>
+                        <tr>
+                            <td class="font-15" colspan="2">
+                                <a class="profile-events white" href='/events/<%= event.id %>'>
+                                    <%= event.title %>
+                                </a>
+                            </td>
+                            <td class="profile-buttons" colspan="2">
+                                <form>
+                                    <button class="profile-edit-buttons" type="submit" formmethod="GET"
+                                        formaction="/events/<%=event.id%>/edit"><i
+                                            class="fa-solid fa-pen-to-square"></i></button>
+                                </form>
+                                <form>
+                                    <button class="profile-edit-buttons" type="submit" formmethod="POST"
+                                        formaction="/events/<%=event.id%>?_method=DELETE"><i
+                                            class="fa-solid fa-trash"></i></button>
+                                </form>
+                            </td>
+                            <% }); } else { %>
+                                <h1 class="secondary font-40">Welcome <%=user.firstName%>, you have not created any events yet</h1>
+                                <p>Click on the New Event tab on the top right corner to create your first event!</p>
+                                <% } %>
+                        </tr>
+            </table>
+        </div>
+    </main>
+
+    <%- include('../partials/footer.ejs')%>
